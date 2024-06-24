@@ -14,7 +14,7 @@ const Home: React.FC = () => {
         <Card
           imageSrc="/color.png"
           title="Color Picker"
-          description="Color picker with copy hex code option"
+          description="Color picker"
           link="/color"
         />
       </div>
