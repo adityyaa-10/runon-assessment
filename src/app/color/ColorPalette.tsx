@@ -27,32 +27,23 @@ const ColorPalette: React.FC<ColorPaletteProps> = ({ initialColors }) => {
         setColors(updatedColors);
     };
 
-    const handleCopyColor = (color: string) => {
-        navigator.clipboard.writeText(color).then(() => {
-            alert(`Copied color: ${color}`);
-        }, (err) => {
-            console.error('Failed to copy color: ', err);
-        });
-    };
-
     return (
         <div className="flex gap-4 bg-white p-4 rounded-lg">
             {colors.map((color, index) => (
                 <div
                     key={index}
-                    className="w-16 h-16 rounded relative"
+                    className="w-16 h-16 rounded"
                     style={{ backgroundColor: color }}
                     draggable
                     onDragStart={(e) => handleDragStart(e, index)}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={(e) => handleDrop(e, index)}
-                    onClick={() => handleCopyColor(color)}
                 >
                     <input
                         type="color"
                         value={color}
                         onChange={(e) => handleColorChange(index, e.target.value)}
-                        className="opacity-0 w-full h-full cursor-pointer"
+                        className="opacity-0 w-full h-full"
                     />
                 </div>
             ))}
